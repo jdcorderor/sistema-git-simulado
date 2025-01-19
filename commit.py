@@ -13,13 +13,3 @@ class Commit:
         self.commit_id = commit_id
         self.lista_archivos = lista_archivos
         self.commit_anterior = commit_anterior
-
-    # Getters de la clase Commit:
-    def get_commit_id(self):
-        return self.commit_id
-
-    def get_lista_archivos(self):
-        return self.lista_archivos
-
-    def get_commit_anterior(self):
-        return self.commit_anterior

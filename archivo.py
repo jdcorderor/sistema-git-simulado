@@ -9,7 +9,3 @@ class Archivo:
     def __init__(self, nombre_archivo: str, contenido_archivo: str):
         self.nombre_archivo = nombre_archivo
         self.contenido_archivo = contenido_archivo
-
-    # Getter de la clase Archivo:
-    def get_nombre_archivo(self):
-        return self.nombre_archivo

@@ -9,7 +9,7 @@ from repositorio import Repositorio
 # Creamos un nuevo Repositorio.
 repo = Repositorio()
 
-# Agregamos Archivos y ejecutamos un Commit.
+# Agregamos Archivos y ejecutamos un Commit en "main".
 repo.git_commit("Initial commit")
 repo.git_log()
 
@@ -20,8 +20,33 @@ repo.git_branch()
 # Cambiamos a la Rama "develop".
 repo.git_switch("develop")
 
-# Agregamos Archivos y ejecutamos un Commit.
-repo.git_commit("Added new feature")
+# Agregamos Archivos y ejecutamos un Commit en "develop".
+repo.git_commit("Added a new feature")
+repo.git_log()
+
+# Cambiamos a la Rama "main".
+repo.git_switch("main")
+
+# Agregamos Archivos y ejecutamos un Commit en "main".
+repo.git_commit("Bug fix")
+repo.git_log()
+
+# Creamos una nueva Rama ("alternative").
+repo.git_branch_create("alternative")
+repo.git_branch()
+
+# Cambiamos a la Rama "alternative".
+repo.git_switch("alternative")
+
+# Agregamos Archivos y ejecutamos un Commit en "alternative".
+repo.git_commit("Added a new module")
+repo.git_log()
+
+# Cambiamos a la Rama "develop".
+repo.git_switch("develop")
+
+# Fusionamos la Rama "alternative" con la Rama "develop" (MERGE).
+repo.git_merge("alternative")
 repo.git_log()
 
 # Cambiamos a la Rama "main".
