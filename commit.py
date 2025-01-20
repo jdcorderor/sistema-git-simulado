@@ -1,10 +1,10 @@
 from archivo import Archivo
 
 """
-    Por. Juan Diego Cordero Román | 31.115.188 | Sección 305C1
+    Por: Juan Diego Cordero Román | 31.115.188 | Sección 305C1
 
     Clase Commit.
-    Atributos: mensaje del commit, lista de Archivos involucrados y puntero al Commit anterior. 
+    Atributos: identificador del commit, lista de archivos y puntero al commit anterior. 
 """
 
 class Commit:

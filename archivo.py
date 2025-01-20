@@ -1,8 +1,8 @@
 """ 
-    Por. Juan Diego Cordero Román | 31.115.188 | Sección 305C1
+    Por: Juan Diego Cordero Román | 31.115.188 | Sección 305C1
 
     Clase Archivo.
-    Atributos: nombre del Archivo y contenido del Archivo. 
+    Atributos: nombre del archivo y contenido del archivo. 
 """
 class Archivo:
     # Constructor de la clase Archivo.

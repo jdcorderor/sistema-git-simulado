@@ -1,59 +1,73 @@
 from repositorio import Repositorio
 
 """
-    Por. Juan Diego Cordero Román | 31.115.188 | Sección 305C1
+    Por: Juan Diego Cordero Román | 31.115.188 | Sección 305C1
 
     Main: Código principal para testear el sistema.
 """
 
-# Creamos un nuevo Repositorio.
+# Crear el repositorio.
 repo = Repositorio()
 
-# Agregamos Archivos y ejecutamos un Commit en "main".
-repo.git_commit("Initial commit")
+# Añadir archivos y ejecutar un commit en la rama 'main'.
+repo.git_commit(input("\ngit commit -m "))
+
+# Mostrar el historial de commits.
 repo.git_log()
 
-# Creamos una nueva Rama ("develop").
-repo.git_branch_create("develop")
+# Crear una nueva rama ('develop').
+repo.git_branch_create(input("\ngit branch "))
+
+# Mostrar la lista de ramas del repositorio.
 repo.git_branch()
 
-# Cambiamos a la Rama "develop".
-repo.git_switch("develop")
+# Cambiar a la rama ('develop').
+repo.git_switch(input("\ngit switch "))
 
-# Agregamos Archivos y ejecutamos un Commit en "develop".
-repo.git_commit("Added a new feature")
+# Añadir archivos y ejecutar un commit en la rama ('develop').
+repo.git_commit(input("\ngit commit -m "))
+
+# Mostrar el historial de commits.
 repo.git_log()
 
-# Cambiamos a la Rama "main".
-repo.git_switch("main")
+# Cambiar a la rama 'main'.
+repo.git_switch(input("\ngit switch "))
 
-# Agregamos Archivos y ejecutamos un Commit en "main".
-repo.git_commit("Bug fix")
+# Añadir archivos y ejecutar un commit en la rama 'main'.
+repo.git_commit(input("\ngit commit -m "))
+
+# Mostrar el historial de commits.
 repo.git_log()
 
-# Creamos una nueva Rama ("alternative").
-repo.git_branch_create("alternative")
+# Crear una nueva rama ('alternative').
+repo.git_branch_create(input("\ngit branch "))
+
+# Mostrar la lista de ramas del repositorio.
 repo.git_branch()
 
-# Cambiamos a la Rama "alternative".
-repo.git_switch("alternative")
+# Cambiar a la rama ('alternative')
+repo.git_switch(input("\ngit switch "))
 
-# Agregamos Archivos y ejecutamos un Commit en "alternative".
-repo.git_commit("Added a new module")
+# Añadir archivos y ejecutar un commit en la rama ('alternative').
+repo.git_commit(input("\ngit commit -m "))
+
+# Mostrar el historial de commits.
 repo.git_log()
 
-# Cambiamos a la Rama "develop".
-repo.git_switch("develop")
+# Cambiar a la rama ('develop').
+repo.git_switch(input("\ngit switch "))
 
-# Fusionamos la Rama "alternative" con la Rama "develop" (MERGE).
-repo.git_merge("alternative")
+# Fusionar la rama ('alternative') con la rama ('develop') - Merge.
+repo.git_merge(input("\ngit merge "))
+
+# Mostrar el historial de commits.
 repo.git_log()
 
-# Cambiamos a la Rama "main".
-repo.git_switch("main")
+# Cambiar a la rama 'main'.
+repo.git_switch(input("\ngit switch "))
 
-# Fusionamos la Rama "develop" con la Rama "main" (MERGE).
-repo.git_merge("develop")
+# Fusionar la rama ('develop') con la rama 'main' - Merge.
+repo.git_merge(input("\ngit merge "))
+
+# Mostrar el historial de commits.
 repo.git_log()
-
-

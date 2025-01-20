@@ -1,10 +1,10 @@
 from commit import Commit
 
 """
-    Por. Juan Diego Cordero Román | 31.115.188 | Sección 305C1
+    Por: Juan Diego Cordero Román | 31.115.188 | Sección 305C1
 
     Clase Rama.
-    Atributos: nombre de la Rama y puntero al Commit más reciente. 
+    Atributos: nombre de la rama y puntero al commit más reciente (actual). 
 """
 
 class Rama:
@@ -12,7 +12,3 @@ class Rama:
     def __init__(self, nombre_rama: str, commit_reciente: Commit):
         self.nombre_rama = nombre_rama
         self.commit_reciente = commit_reciente
-        
-    # Setter de la clase Rama:
-    def set_commit_reciente(self, valor: Commit):
-        self.commit_reciente = valor
