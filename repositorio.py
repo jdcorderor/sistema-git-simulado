@@ -22,6 +22,7 @@ class Repositorio:
         if self.validacion_identificador_commit(identificador): # Invoca al método 'validacion_identificador_commit', que verifica la unicidad del identificador.
             ultimo_commit = self.rama_activa.commit_reciente # Asigna el puntero al commit más reciente de la rama activa a la variable 'ultimo_commit'.
             lista_archivos_commit = self.listar_archivos_commit() # Invoca al método 'listar_archivos_commit', para agregar los archivos y almacenarlos en 'lista_archivos_commit'.
+            imprimir_stage_area(lista_archivos_commit)
             if confirmacion_commit(identificador): # Invoca a la función 'confirmacion_commit', en la que el usuario debe confirmar la ejecución del commit.
                 if ultimo_commit: # Evalúa si existe un commit predecesor en la rama activa.
                     lista_archivos_commit = self.rama_activa.commit_reciente.lista_archivos + lista_archivos_commit # Los archivos preexistentes se añaden a 'lista_archivos_commit'.
@@ -140,14 +141,14 @@ class Repositorio:
 
     # Método auxiliar encargado de agregar por teclado los archivos implicados en un commit:
     def listar_archivos_commit(self):
-        band = 0 # Se inicializa la variable 'band' en cero.
+        band = "0" # Se inicializa la variable 'band' en '0'.
         archivos = [] # Se crea una lista vacía, y se asigna a la variable 'archivos'.
-        while (band == 0): # Evalúa si el valor de la variable 'band' es cero.
+        while (band == "0"): # Evalúa si el valor de la variable 'band' es '0'.
             print("\n--- Carga de Archivo ---") # Se imprime un encabezado.
             nombre = input("Ingrese el nombre del archivo: ") # Se solicita el ingreso del nombre del archivo.
             contenido = input("Ingrese el contenido del archivo: ") # Se solicita el ingreso del contenido del archivo.
             validacion_add_archivos(nombre, contenido, archivos) # Invoca a la función 'validacion_add_archivos', que valida la unicidad de los nombres de los archivos agregados.
-            band = int(input("Ingrese 0 para agregar un nuevo archivo, y cualquier otro valor para proceder al commit: ")) # Se emite la consulta de confirmación (permite al usuario acceder al teclado).
+            band = input("Ingrese 0 para agregar un nuevo archivo, y cualquier otro valor para proceder al commit: ") # Se emite la consulta de confirmación (permite al usuario acceder al teclado).
         return archivos # Retorna la lista 'archivos'.
     
     # Método auxiliar para imprimir los atributos de los objetos archivo implicados en un commit:
@@ -179,16 +180,25 @@ def validacion_add_archivos(archivo_nombre: str, archivo_contenido: str, archivo
 
 # Función para confirmar el commit:
 def confirmacion_commit(identificador_commit: str): # Recibe como parámetro el identificador del commit.
-    band = int(input(f"\nIngrese 0 para ejecutar el commit '{identificador_commit}', y cualquier otro valor para descartar: ")) # Se emite la consulta de confirmación (permite al usuario acceder al teclado).
-    if band == 0: # Evalúa si el usuario ingresó '0' (valor de confirmación).
+    band = input(f"\nIngrese 0 para ejecutar el commit '{identificador_commit}', y cualquier otro valor para descartar: ") # Se emite la consulta de confirmación (permite al usuario acceder al teclado).
+    if band == "0": # Evalúa si el usuario ingresó '0' (valor de confirmación).
         return True # Retorna 'True', confirmando la ejecución.
     else: # En caso de que el usuario haya ingresado un valor distinto de cero.
         return False # Retorna 'False', descartando la ejecución.
 
 # Función para confirmar el merge:   
 def confirmacion_merge(identificador_merge: str): # Recibe como parámetro el identificador de la fusión (merge).
-    band = int(input(f"\nIngrese 0 para ejecutar el '{identificador_merge}', y cualquier otro valor para descartar: ")) # Se emite la consulta de confirmación (permite al usuario acceder al teclado).
-    if band == 0: # Evalúa si el usuario ingresó '0' (valor de confirmación).
+    band = input(f"\nIngrese 0 para ejecutar el '{identificador_merge}', y cualquier otro valor para descartar: ") # Se emite la consulta de confirmación (permite al usuario acceder al teclado).
+    if band == "0": # Evalúa si el usuario ingresó '0' (valor de confirmación).
         return True # Retorna 'True', confirmando la ejecución.
     else: # En caso de que el usuario haya ingresado un valor distinto de cero.
         return False # Retorna 'False', descartando la ejecución.
+    
+# Función encargada de imprimir los archivos agregados al stage:
+def imprimir_stage_area(archivos: list[Archivo]): # Recibe como parámetro una lista del tipo de la clase Archivo, con los archivos agregados al stage area (previo al commit).
+    print("\nStage area:", end=" ") # Se imprime un subtítulo.
+    for i in range (len(archivos)): # Ciclo que recorre las posiciones de la lista de objetos del tipo Archivo.
+        if i == (len(archivos) - 1): # Evalúa si la variable 'i' toma el valor del mayor índice de la lista.
+            print("%s: %s"%(archivos[i].nombre_archivo, archivos[i].contenido_archivo)) # Se imprimen los atributos del último objeto archivo, sin evitar el salto de línea.
+        else: # En caso de que 'i' no asuma el valor del mayor índice de la lista.
+            print("%s: %s,"%(archivos[i].nombre_archivo, archivos[i].contenido_archivo), end=" ") # Se imprimen los atributos de los objetos archivo, agregando una coma y evitando el salto de línea.
