@@ -6,7 +6,7 @@ from string import ascii_lowercase
     Por: Juan Diego Cordero Román | 31.115.188 | Sección 305C1
 
     Clase Commit.
-    Atributos: identificador del commit, lista de archivos y puntero al commit anterior. 
+    Atributos: identificador del commit, lista de archivos, hash del commit y puntero al commit anterior. 
 """
 
 class Commit:

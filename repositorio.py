@@ -11,9 +11,9 @@ from archivo import Archivo
 
 class Repositorio:
     # Constructor de la clase Repositorio:
-    def __init__(self):
-        self.lista_repo_commits = None # Se inicializa con 'None' ya que no se han ejecutado commits.
-        self.lista_repo_ramas = [Rama("main", None)] # Se inicializa automáticamente con una lista que almacena un puntero a la rama 'main'.
+    def __init__(self, commits = None, ramas = [Rama("main", None)]):
+        self.lista_repo_commits = commits # Se inicializa con 'None' ya que no se han ejecutado commits.
+        self.lista_repo_ramas = ramas # Se inicializa automáticamente con una lista que almacena un puntero a la rama 'main'.
         self.rama_activa = self.lista_repo_ramas[0] # Se inicializa automáticamente con un puntero a la rama "main".
         print("\ngit init") # Se imprime el comando Git que inicializa un repositorio.
 
